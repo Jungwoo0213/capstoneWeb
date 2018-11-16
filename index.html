@@ -6,21 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-    display: grid;
-    grid-template-columns: 1fr;
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    width: 100%
+    
 }
-.header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: coral;
-    color: white;
-    text-align: center;
+#header {
+  background-color: #f1f1f1; /* Grey background */
+  padding: 5px 0px; /* Some padding */
+  color: black;
+  text-align: center; /* Centered text */
+  font-size: 20px; /* Big font size */ 
+  font-weight: bold; 
+  position: fixed; /* Fixed position - sit on top of the page */
+  top: 0; 
+  width: 100%; /* Full width */
+  transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
-.footer {
+#footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -30,27 +32,78 @@ body {
     text-align: center;
 }
 .point{
-    margin-top: 100px;
-    border:2px solid gray;
+    border:2px solid rgb(196, 191, 191);
+    background: rgb(196, 191, 191);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 120px;
+}
+.items{
+    border:2px solid rgb(196, 191, 191);
+    margin-top: 10px;
     border-radius: 5px;
     text-align: center;
 }
+.content{
+    margin:30px 8px 60px 8px;
+}
 </style>
+<script>
+    // When the user scrolls down 50px from the top of the document, resize the header's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("header").style.fontSize = "10px";
+    document.getElementById("header").style.padding = "0px";
+  } else {
+    document.getElementById("header").style.fontSize = "20px";
+    document.getElementById("header").style.padding = "5px 0px";
+  }
+}
+</script>
 </head>
 <body>
-    <div class="header">
+    <div id="header">
         <h1>RunnyMoney</h1>
     </div>
 
-    <div class="point">
-        <p>You've earned</p>
-        <h2 style= "display:inline;">3000</h2>
-        <p> points</p>
+    <div class="content">
+        <div class="point">
+            <p>You've earned</p>
+            <h2 style= "display:inline;">3000</h2>
+            <p> points</p>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
+        <div class="items">
+            <h2>10% coupon</h2>
+        </div>
     </div>
     
-    <p>A website created by me.</p>
-
-    <div class="footer">
+    <div id="footer">
         <p>Run</p>
     </div>
 </body>
