@@ -3,7 +3,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 #header {
-  background-color: #f1f1f1; /* Grey background */
+  background-color: #b39ddb; /* Grey background */
   padding: 0px; /* Some padding */
   color: black;
   text-align: center; /* Centered text */
@@ -24,27 +24,14 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: coral;
-    color: white;
+    background-color: #e6ceff;
+    color: black;
     text-align: center;
 }
 #footer a{
         text-decoration: none;
-        color: white;
+        color: black;
     }
-.point{
-    border:2px solid rgb(196, 191, 191);
-    background: rgb(196, 191, 191);
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 120px;
-}
-.items{
-    border:2px solid rgb(196, 191, 191);
-    margin-top: 10px;
-    border-radius: 5px;
-    text-align: center;
-}
 .content{
     margin:30px 8px 60px 8px;
 }
