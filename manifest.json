@@ -3,17 +3,12 @@
   "name": "RunnyMoney",
   "icons": [
     {
-      "src": "/images/icons-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
       "src": "icons-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "https://jungwoo0213.github.io/capstoneweb/index.html",
   "background_color": "#429bf4",
   "display": "standalone",
   "theme_color": "#429bf4"
