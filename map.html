@@ -128,11 +128,9 @@
             }
         }
         timestring.textContent = (minutes ? (minutes > 9 ? minutes : minutes) : "0") + "m " + (seconds > 9 ? seconds : seconds)+"s";
-
-        timer();
       }
       function timer() {
-        t = setTimeout(add, 1000);
+        t = setInterval(add, 1000);
       }
       
       start.onclick = startPause;
