@@ -27,14 +27,16 @@
     font-weight: bold; 
     position: fixed; /* Fixed position - sit on top of the page */
     }
-    .content{
-      margin:50px 0px 45px 0px;
-      height: 100%;
+    #content{
+      padding:50px 0px 100px 0px;
+      width: 100%;
+      height: 100vh;
     }
     #map{
-        margin: 50px 0px 45px 0px;
-        height: 100%;
-        width: 100%;
+      position: absolute;
+      top: 50px;
+      bottom: 45px;
+      width: 100vw;
     }
     
     </style>
@@ -44,7 +46,7 @@
                 <h1><a href="index.html">RunnyMoney.</a></h1>
         </div>
 
- 
+
           <div id="map"></div>
 
         
