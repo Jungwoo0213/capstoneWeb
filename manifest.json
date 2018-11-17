@@ -8,7 +8,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "https://jungwoo0213.github.io/capstoneweb/",
   "background_color": "#5c6bc0",
   "display": "standalone",
   "theme_color": "#5c6bc0"
