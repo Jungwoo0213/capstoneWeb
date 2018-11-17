@@ -23,6 +23,7 @@
   font-weight: bold; 
   position: fixed; /* Fixed position - sit on top of the page */
   width: 100%; /* Full width */
+  height: 100px;
   transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
 .point{
@@ -62,9 +63,11 @@ function scrollFunction() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     document.getElementById("header").style.fontSize = "10px";
     document.getElementById("header").style.padding = "0px";
+    document.getElementById("header").style.height = "50px";
   } else {
     document.getElementById("header").style.fontSize = "20px";
     document.getElementById("header").style.padding = "5px 0px";
+    document.getElementById("header").style.height = "100px";
   }
 }
 </script>

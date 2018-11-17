@@ -12,6 +12,7 @@ body {
   position: fixed; /* Fixed position - sit on top of the page */
   top: 0; 
   width: 100%; /* Full width */
+  height: 50px;
   font-family: 'Poiret One', cursive;
   opacity: 0.96;
 }
@@ -24,7 +25,8 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 5px 0px;
+    height: 45px;
+    padding: 0px;
     background-color: #8e99f3;
     color: black;
     font-size: 30px;

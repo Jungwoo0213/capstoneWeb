@@ -12,7 +12,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" type="text/css" href="mainstyle.css">
     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
     <style>
+    html, body{
+      height: 100%;
+      width: 100%;
+    }
     #header {
     padding: 0px; /* Some padding */
     text-align: center; /* Centered text */
@@ -20,12 +27,16 @@
     font-weight: bold; 
     position: fixed; /* Fixed position - sit on top of the page */
     }
-
-    #map{
-        margin-top:50px;
-        height:600px;
-        width:100%;
+    .content{
+      margin:50px 0px 45px 0px;
+      height: 100%;
     }
+    #map{
+        margin: 50px 0px 45px 0px;
+        height: 100%;
+        width: 100%;
+    }
+    
     </style>
 </head>
 <body>
@@ -33,16 +44,16 @@
                 <h1><a href="index.html">RunnyMoney.</a></h1>
         </div>
 
-        <div class="content">
-                <div id="map"></div>
-        </div>
+ 
+          <div id="map"></div>
+
         
         <div id="footer">
             <a href="index.html"><i class="material-icons">home</i></a>
             <p><a href="map.html">Run</a></p>
             <a href="profile.html"><i class="material-icons">person</i></a>
         </div>
-        
+
         <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
