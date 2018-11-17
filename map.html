@@ -27,28 +27,60 @@
     font-weight: bold; 
     position: fixed; /* Fixed position - sit on top of the page */
     }
-    #content{
-      padding:50px 0px 100px 0px;
-      width: 100%;
-      height: 100vh;
-    }
     #map{
       position: absolute;
       top: 50px;
       bottom: 45px;
       width: 100vw;
     }
+    #status{
+      border: 2px none black;
+      background: #d3c9d4;
+      border-radius: 5px;
+      position: absolute;
+      left:0;
+      right:0;
+      top:100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+      justify-content:center;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #status h4{
+      display: inline;
+      margin: 15px 0px;
+      font-size: 25px;
+    }
+    #status p{
+      margin: 10px 0px;
+      font-size: 20px;
+    }
     
     </style>
 </head>
 <body>
         <div id="header">
-                <h1><a href="index.html">RunnyMoney.</a></h1>
+          <h1><a href="index.html">RunnyMoney.</a></h1>
         </div>
 
 
           <div id="map"></div>
 
+          <div id="status">
+
+              <h4>Speed</h4>
+              <h4>Time</h4>
+              <h4>Distance</h4>
+
+              <p>5 km/h</p>              
+              <p>10m 31s</p>
+              <p>7 km</p>
+ 
+          </div>
         
         <div id="footer">
             <a href="index.html"><i class="material-icons">home</i></a>
@@ -56,46 +88,11 @@
             <a href="profile.html"><i class="material-icons">person</i></a>
         </div>
 
-        <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.382593, lng: 126.671132},
-          zoom: 19
-        });
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+    <script type="text/javascript" src="map.js"></script>
+    <script>
 
-            var marker = new google.maps.Marker({position: pos, map: map});
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
     </script>
-                    
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKjehBigyZ5RrAtAzPs7zRd37_Zy2nn9U&callback=initMap">
     </script>
