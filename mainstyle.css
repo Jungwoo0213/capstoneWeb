@@ -3,9 +3,9 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 #header {
-  background-color: #b39ddb; /* Grey background */
+  background-color: #5c6bc0; /* Grey background */
   padding: 0px; /* Some padding */
-  color: black;
+  color: white;
   text-align: center; /* Centered text */
   font-size: 10px; /* Big font size */ 
   font-weight: bold; 
@@ -16,7 +16,7 @@ body {
   opacity: 0.96;
 }
 #header a{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 #footer {
@@ -24,13 +24,17 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #e6ceff;
+    background-color: #26418f;
     color: black;
     text-align: center;
+    font-size: 20px;
+}
+#footer p{
+    margin:10px 0px;
 }
 #footer a{
         text-decoration: none;
-        color: black;
+        color: white;
     }
 .content{
     margin:30px 8px 60px 8px;
