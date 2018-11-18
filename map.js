@@ -1,4 +1,4 @@
-// Note: This example requires that you consent to location sharing when
+      // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
@@ -22,7 +22,11 @@
               lng: position.coords.longitude
             };
 
-            var marker = new google.maps.Marker({position: pos, map: map});
+            var marker = new google.maps.Marker({
+              position: pos, 
+              map: map,
+              animation:google.maps.Animation.BOUNCE,
+            });
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
