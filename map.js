@@ -3,7 +3,9 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
+
       function initMap() {
+
         var myOptions = {
           zoom: 19,
           center: {lat: 37.382593, lng: 126.671132},
@@ -13,6 +15,8 @@
         };
 
         map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+        infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
