@@ -44,7 +44,7 @@
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.\nTurn on GPS then reload.' :
+                              'Error: The Geolocation service failed.<br>Turn on GPS then reload.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
