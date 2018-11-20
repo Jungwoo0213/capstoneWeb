@@ -66,7 +66,7 @@ function followUser() {
 
     if(pos.coords.speed !== null)
     {
-      document.getElementById("speed").innerHTML=pos.coords.speed;
+      document.getElementById("speed").innerHTML=Math.ceil(pos.coords.speed *100)/100;
     }
   }
 
