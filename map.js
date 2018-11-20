@@ -1,50 +1,129 @@
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
+var map, infoWindow, marker;
 
-      function initMap() {
+function initMap() {
 
-        var myOptions = {
-          zoom: 19,
-          center: {lat: 37.382593, lng: 126.671132},
-          streetViewControl: false,
-          fullscreenControl: false,
-          mapTypeControl: false,
-        };
+  var myOptions = {
+    zoom: 19,
+    center: {lat: 37.382593, lng: 126.671132},
+    streetViewControl: false,
+    fullscreenControl: false,
+    mapTypeControl: false,
+  };
 
-        map = new google.maps.Map(document.getElementById('map'), myOptions);
+  map = new google.maps.Map(document.getElementById('map'), myOptions);
 
-        infoWindow = new google.maps.InfoWindow;
+  infoWindow = new google.maps.InfoWindow;
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
 
-            var marker = new google.maps.Marker({
-              position: pos, 
-              map: map,
-              animation:google.maps.Animation.BOUNCE,
-            });
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
+      marker = new google.maps.Marker({
+        position: pos, 
+        map: map,
+        animation:google.maps.Animation.BOUNCE,
+      });
+      map.setCenter(pos);
+
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.<br>Turn on GPS then reload.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+
+var id;
+
+function followUser() {
+  var options;
+
+
+  function success(pos) {
+    var crd = {
+      lat: pos.coords.latitude,
+      lng: pos.coords.longitude
+    };
+    marker.setPosition(crd);
+    map.setCenter(crd);
+
+    if(pos.coords.speed !== null)
+    {
+      document.getElementById("speed").innerHTML=pos.coords.speed;
+    }
+  }
+
+  function error(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+  }
+
+  options = {
+    enableHighAccuracy: false,
+    timeout: 5000,
+    maximumAge: 0
+  };
+  
+  id = navigator.geolocation.watchPosition(success, error, options);
+}
+
+
+////Timer
+////
+////
+
+var timestring = document.getElementById('timer'),
+      start = document.getElementById('startButton'),
+      seconds = 0, minutes = 0,
+      t;
+
+function add() {
+  seconds++;
+  if (seconds >= 60) {
+      seconds = 0;
+      minutes++;
+      if (minutes >= 60) {
+          minutes = 0;
+          hours++;
       }
+  }
+  timestring.textContent = (minutes ? (minutes > 9 ? minutes : minutes) : "0") + "m " + (seconds > 9 ? seconds : seconds)+"s";
+}
+function timer() {
+  t = setInterval(add, 1000);
+}
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.<br>Turn on GPS then reload.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
+start.onclick = startPause;
+
+var start = true;
+function startPause() {
+  if (start===true)
+  {
+    timer();
+    followUser();
+    document.getElementById("startButton").innerHTML="Pause";
+    start = false;
+  }
+  else{
+    clearTimeout(t);
+    navigator.geolocation.clearWatch(id);
+    document.getElementById("startButton").innerHTML="Start";
+    start = true;
+  }
+}

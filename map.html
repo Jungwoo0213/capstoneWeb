@@ -106,7 +106,7 @@
               <h4>Time</h4>
               <h4>Distance</h4>
 
-              <p>5 km/h</p>              
+              <p><span id="speed">0</span> m/s</p>              
               <p id="timer">0m 0s</p>
               <p>7 km</p>
  
@@ -118,46 +118,7 @@
             <a href="profile.html"><i class="material-icons">person</i></a>
         </div>
 
-    <script>
-      var timestring = document.getElementById('timer'),
-            start = document.getElementById('startButton'),
-            seconds = 0, minutes = 0,
-            t;
-
-      function add() {
-        seconds++;
-        if (seconds >= 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes >= 60) {
-                minutes = 0;
-                hours++;
-            }
-        }
-        timestring.textContent = (minutes ? (minutes > 9 ? minutes : minutes) : "0") + "m " + (seconds > 9 ? seconds : seconds)+"s";
-      }
-      function timer() {
-        t = setInterval(add, 1000);
-      }
-      
-      start.onclick = startPause;
-
-      var start = true;
-      function startPause() {
-        if (start===true)
-        {
-          timer();
-          document.getElementById("startButton").innerHTML="Pause";
-          start = false;
-        }
-        else{
-          clearTimeout(t);
-          document.getElementById("startButton").innerHTML="Start";
-          start = true;
-        }
-      }
-    </script>
-
+    
     <script type="text/javascript" src="map.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKjehBigyZ5RrAtAzPs7zRd37_Zy2nn9U&callback=initMap">
