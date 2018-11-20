@@ -64,11 +64,23 @@ function followUser() {
     marker.setPosition(crd);
     map.setCenter(crd);
 
-    if(pos.coords.speed !== null)
-    {
-      document.getElementById("speed").innerHTML=Math.ceil(pos.coords.speed *100)/100;
-      console.log(`Speed: ${pos.coords.speed}`);
-    }
+    ////Speed
+    var lastTimestamp;
+    var speedX = 0, speedY = 0, speedZ = 0;
+    window.addEventListener('devicemotion', function(event) {
+      var currentTime = new Date().getTime();
+        if (lastTimestamp === undefined) {
+          lastTimestamp = new Date().getTime();
+          return; //ignore first call, we need a reference time
+        }
+      //  m/s² / 1000 * (miliseconds - miliseconds)/1000 /3600 => km/h (if I didn't made a mistake)
+      speedX += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+      //... same for Y and Z
+      document.getElementById("speed").innerHTML=speedX;
+      lastTimestamp = currentTime;
+    }, false);
+
+    
   }
 
   function error(err) {
