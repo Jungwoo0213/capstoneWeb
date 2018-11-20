@@ -67,6 +67,7 @@ function followUser() {
     if(pos.coords.speed !== null)
     {
       document.getElementById("speed").innerHTML=Math.ceil(pos.coords.speed *100)/100;
+      console.log(`Speed: ${pos.coords.speed}`);
     }
   }
 
@@ -75,8 +76,7 @@ function followUser() {
   }
 
   options = {
-    enableHighAccuracy: false,
-    timeout: 5000,
+    enableHighAccuracy: true,
     maximumAge: 0
   };
   
