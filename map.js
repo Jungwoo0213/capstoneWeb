@@ -72,10 +72,11 @@ function followUser() {
     marker.setPosition(crd);
     map.setCenter(crd);
 
+    myLatLng = new google.maps.LatLng(crd); 
 
     var path = poly.getPath();
 
-    path.push(crd);
+    path.push(myLatLng);
 
 
     ////Speed
