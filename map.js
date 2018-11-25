@@ -3,6 +3,7 @@
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 var map, infoWindow, marker;
+var poly;
 
 function initMap() {
 
@@ -32,6 +33,13 @@ function initMap() {
         animation:google.maps.Animation.BOUNCE,
       });
       map.setCenter(pos);
+
+      poly = new google.maps.Polyline({
+        strokeColor: '#000000',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+      });
+      poly.setMap(map);
 
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -64,7 +72,14 @@ function followUser() {
     marker.setPosition(crd);
     map.setCenter(crd);
 
+
+    var path = poly.getPath();
+
+    path.push(crd);
+
+
     ////Speed
+    /*
     var lastTimestamp;
     var speedX = 0, speedY = 0, speedZ = 0;
     window.addEventListener('devicemotion', function(event) {
@@ -79,6 +94,7 @@ function followUser() {
       document.getElementById("speed").innerHTML=speedX;
       lastTimestamp = currentTime;
     }, false);
+    */
 
     
   }
