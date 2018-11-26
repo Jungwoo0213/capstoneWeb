@@ -79,6 +79,8 @@ function followUser() {
 
     path.push(myLatLng);
 
+    console(google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng));
+
     if(prevLatLng != null)
       distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
 
