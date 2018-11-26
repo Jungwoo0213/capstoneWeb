@@ -5,6 +5,7 @@
 var map, infoWindow, marker;
 var poly;
 var distance=0;
+var prevLatLng=null;
 
 function initMap() {
 
