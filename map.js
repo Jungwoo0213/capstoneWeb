@@ -4,6 +4,7 @@
 // locate you.
 var map, infoWindow, marker;
 var poly;
+var distance;
 
 function initMap() {
 
@@ -77,6 +78,17 @@ function followUser() {
     var path = poly.getPath();
 
     path.push(myLatLng);
+
+    if(prevLatLng != null)
+      distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
+
+    if (distance < 1000)
+      document.getElementById("distance").innerHTML=distance+" m";
+    else
+      document.getElementById("distance").innerHTML=distance/1000+" km";
+
+    prevLatLng = myLatLng;
+
 
 
     ////Speed
