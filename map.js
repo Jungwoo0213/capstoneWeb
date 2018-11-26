@@ -4,7 +4,7 @@
 // locate you.
 var map, infoWindow, marker;
 var poly;
-var distance;
+var distance=0;
 
 function initMap() {
 
