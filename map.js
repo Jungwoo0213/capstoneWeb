@@ -85,9 +85,9 @@ function followUser() {
       distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
 
     if (distance < 1000)
-      document.getElementById("distance").innerHTML=distance+" m";
+      document.getElementById("distance").innerHTML=Math.floor(distance)+" m";
     else
-      document.getElementById("distance").innerHTML=distance/1000+" km";
+      document.getElementById("distance").innerHTML=Math.floor(distance/1000)+" km";
 
     prevLatLng = myLatLng;
 
