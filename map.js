@@ -87,7 +87,7 @@ function followUser() {
     if (distance < 1000)
       document.getElementById("distance").innerHTML=Math.floor(distance)+" m";
     else
-      document.getElementById("distance").innerHTML=Math.floor(distance/1000)+" km";
+      document.getElementById("distance").innerHTML=Math.floor(distance/10)/100+" km";
 
     prevLatLng = myLatLng;
 
