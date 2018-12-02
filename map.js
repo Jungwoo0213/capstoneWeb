@@ -7,10 +7,6 @@ var poly;
 var distance=0;
 var prevLatLng=null;
 
-var preTime = null;
-var curTime = null;
-var curSpeed = 0;
-
 function initMap() {
 
   var myOptions = {
@@ -65,6 +61,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 var id;
+var v;
 
 function followUser() {
   var options;
@@ -84,12 +81,6 @@ function followUser() {
 
     path.push(myLatLng);
 
-
-
-
-    var d = new Date();
-    curTime = d.getTime();
-
     if(prevLatLng != null)
       distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
 
@@ -98,13 +89,6 @@ function followUser() {
     else
       document.getElementById("distance").innerHTML=Math.floor(distance/10)/100+" km";
     prevLatLng = myLatLng;
-
-    if(preTime != null)
-    {
-      curSpeed = 10*Math.floor(distance/((curTime-preTime)/100));
-      document.getElementById("speed").innerHTML=curSpeed +" m/s";
-    }
-    preTime = curTime;
 
     ////Speed
     /*
@@ -137,8 +121,33 @@ function followUser() {
   };
   
   id = navigator.geolocation.watchPosition(success, error, options);
-}
+  
 
+  var preLoc = null;
+  var sdis = 0;
+  function checkSpeed(pos){
+    var position = {
+      lat: pos.coords.latitude,
+      lng: pos.coords.longitude
+    };
+
+    var curLoc = new google.maps.LatLng(position);
+
+    if(preLoc != null)
+    {
+      sdis = google.maps.geometry.spherical.computeDistanceBetween(curLoc, preLoc);
+      document.getElementById("speed").innerHTML=sdis +" m/s";
+    }
+
+    preLoc = curLoc;
+  }
+
+  function incr(){
+    navigator.geolocation.getCurrentPosition(checkSpeed, error, options);
+  }
+  
+  v = setInterval(incr, 1000);
+}
 
 ////Timer
 ////
@@ -180,6 +189,7 @@ function startPause() {
     clearTimeout(t);
     navigator.geolocation.clearWatch(id);
     document.getElementById("startButton").innerHTML="Start";
+    clearInterval(v);
     start = true;
   }
 }
