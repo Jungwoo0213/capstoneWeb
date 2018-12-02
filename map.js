@@ -10,7 +10,7 @@ var prevLatLng=null;
 var d = new Date();
 var preTime = null;
 var curTime = null;
-var curSpeed = null;
+var curSpeed = 0;
 
 function initMap() {
 
@@ -87,12 +87,7 @@ function followUser() {
 
     curTime = d.getTime();
 
-    if(preTime != null)
-    {
-      curSpeed = 10*Math.floor(google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng)/((curTime-preTime)/100));
-      document.getElementById("speed").innerHTML=curSpeed +" m/s";
-    }
-    preTime = curTime;
+    
 
     if(prevLatLng != null)
       distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
@@ -101,10 +96,14 @@ function followUser() {
       document.getElementById("distance").innerHTML=Math.floor(distance)+" m";
     else
       document.getElementById("distance").innerHTML=Math.floor(distance/10)/100+" km";
-
     prevLatLng = myLatLng;
 
-
+    if(distance != 0 && preTime != null)
+    {
+      curSpeed = 10*Math.floor(distance/((curTime-preTime)/100));
+      document.getElementById("speed").innerHTML=curSpeed +" m/s";
+    }
+    preTime = curTime;
 
     ////Speed
     /*
