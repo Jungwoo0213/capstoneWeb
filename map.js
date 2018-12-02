@@ -7,7 +7,6 @@ var poly;
 var distance=0;
 var prevLatLng=null;
 
-var d = new Date();
 var preTime = null;
 var curTime = null;
 var curSpeed = 0;
@@ -85,9 +84,11 @@ function followUser() {
 
     path.push(myLatLng);
 
-    curTime = d.getTime();
 
-    
+
+
+    var d = new Date();
+    curTime = d.getTime();
 
     if(prevLatLng != null)
       distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
