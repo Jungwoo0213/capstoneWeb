@@ -136,6 +136,7 @@ function followUser() {
     if(preLoc != null)
     {
       sdis = google.maps.geometry.spherical.computeDistanceBetween(curLoc, preLoc);
+      sdis = sdis.toFixed(1);
       document.getElementById("speed").innerHTML=sdis +" m/s";
     }
 
