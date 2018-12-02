@@ -7,6 +7,11 @@ var poly;
 var distance=0;
 var prevLatLng=null;
 
+var d = new Date();
+var preTime = null;
+var curTime = null;
+var curSpeed = null;
+
 function initMap() {
 
   var myOptions = {
@@ -79,6 +84,12 @@ function followUser() {
     var path = poly.getPath();
 
     path.push(myLatLng);
+
+    if(preTime != null)
+    {
+      curSpeed = 10*Math.floor(google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng)/((curTime-preTime)/100));
+      document.getElementById("speed").innerHTML=curSpeed +" m/s";
+    }
 
 
     if(prevLatLng != null)
