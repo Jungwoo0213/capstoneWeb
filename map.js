@@ -99,7 +99,7 @@ function followUser() {
       document.getElementById("distance").innerHTML=Math.floor(distance/10)/100+" km";
     prevLatLng = myLatLng;
 
-    if(distance != 0 && preTime != null)
+    if(preTime != null)
     {
       curSpeed = 10*Math.floor(distance/((curTime-preTime)/100));
       document.getElementById("speed").innerHTML=curSpeed +" m/s";
