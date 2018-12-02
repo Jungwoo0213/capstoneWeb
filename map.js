@@ -85,12 +85,14 @@ function followUser() {
 
     path.push(myLatLng);
 
+    curTime = d.getTime();
+
     if(preTime != null)
     {
       curSpeed = 10*Math.floor(google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng)/((curTime-preTime)/100));
       document.getElementById("speed").innerHTML=curSpeed +" m/s";
     }
-
+    preTime = curTime;
 
     if(prevLatLng != null)
       distance = distance + google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLatLng);
