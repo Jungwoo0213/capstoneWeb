@@ -64,6 +64,7 @@ var id;
 var v;
 var preLoc = null;
 var curLoc = null;
+var sdis = 0;
 
 function followUser() {
   var options;
@@ -126,7 +127,6 @@ function followUser() {
   
 
   
-  var sdis = 0;
   function checkSpeed(pos){
     var position = {
       lat: pos.coords.latitude,
