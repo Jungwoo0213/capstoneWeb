@@ -62,6 +62,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 var id;
 var v;
+var preLoc = null;
 
 function followUser() {
   var options;
@@ -123,7 +124,7 @@ function followUser() {
   id = navigator.geolocation.watchPosition(success, error, options);
   
 
-  var preLoc = null;
+  
   var sdis = 0;
   function checkSpeed(pos){
     var position = {
