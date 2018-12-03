@@ -136,7 +136,7 @@ function followUser() {
     if(preLoc != null)
     {
       sdis = google.maps.geometry.spherical.computeDistanceBetween(curLoc, preLoc);
-      sdis = (sdis*10).toFixed(1);
+      sdis = (sdis*2).toFixed(1);
       document.getElementById("speed").innerHTML=sdis +" m/s";
     }
 
@@ -147,7 +147,7 @@ function followUser() {
     navigator.geolocation.getCurrentPosition(checkSpeed, error, options);
   }
   
-  v = setInterval(incr, 100);
+  v = setInterval(incr, 500);
 }
 
 ////Timer
