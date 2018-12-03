@@ -63,6 +63,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 var id;
 var v;
 var preLoc = null;
+var curLoc = null;
 
 function followUser() {
   var options;
@@ -132,7 +133,7 @@ function followUser() {
       lng: pos.coords.longitude
     };
 
-    var curLoc = new google.maps.LatLng(position);
+    curLoc = new google.maps.LatLng(position);
 
     if(preLoc != null)
     {
