@@ -187,6 +187,7 @@ function countDown() {
       setTimeout(function(){
         co.style.display = "none";
         timer();
+        followUser();
       }, 1000);
     } else {
       num--;
@@ -199,11 +200,19 @@ function countDown() {
 start.onclick = startPause;
 
 var start = true;
+var running = false;
 function startPause() {
-  if (start===true)
+  if (start===true && running ===false)
   {
     document.getElementById("count").innerHTML = num;
     countDown();
+    document.getElementById("startButton").innerHTML="Pause";
+    start = false;
+    running = true;
+  }
+  else if (start===true && running ===true)
+  {
+    timer();
     followUser();
     document.getElementById("startButton").innerHTML="Pause";
     start = false;
@@ -211,7 +220,7 @@ function startPause() {
   else{
     clearTimeout(t);
     navigator.geolocation.clearWatch(id);
-    document.getElementById("startButton").innerHTML="Start";
+    document.getElementById("startButton").innerHTML="Resume";
     clearInterval(v);
     start = true;
   }
