@@ -37,7 +37,7 @@ function initMap() {
       map.setCenter(pos);
 
       poly = new google.maps.Polyline({
-        strokeColor: '#b1dd90',
+        strokeColor: '#338a3e',
         strokeOpacity: 1.0,
         strokeWeight: 10
       });
