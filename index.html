@@ -61,6 +61,13 @@
     margin:30px 8px 60px 8px;
 }
 
+#run {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 </style>
 <script>
@@ -121,10 +128,11 @@ function scrollFunction() {
     </div>
     
     <div id="footer">
-        <a href="index.html"><i class="material-icons">home</i></a>
-        <p><a href="map.html">Run</a></p>
-        <a href="profile.html"><i class="material-icons">person</i></a>
+        <a href="index.html"><i id = "home" class="material-icons">home</i></a>
+        <span></span>
+        <a href="profile.html"><i id = "person" class="material-icons">person</i></a>
     </div>
+    <a href="map.html"><img id="run" src="runny_icon.png"></a>
 
 </body>
 </html>
