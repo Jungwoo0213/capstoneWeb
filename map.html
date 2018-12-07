@@ -102,6 +102,29 @@
       font-size: 80px;
       transform: translateY(-50%);
     }
+
+    #stop {
+      display: none;
+      position:fixed;
+      bottom: 70px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    #point-con{
+      display: none;
+      grid-column: 1 / span 3;
+    }
+
+    #point-con p{
+      text-align: center;
+    }
+
+    #point {
+      text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -121,7 +144,13 @@
               <p id="speed">0 m/s</p>              
               <p id="timer">0m 0s</p>
               <p id="distance">0 m</p>
- 
+              
+              <div id="point-con">
+                <p>You've earned</p>
+                <h1 id="point">0</h1>
+                <p>points!</p>
+              </div>
+              
           </div>
 
           <div id="count"></div>
@@ -131,6 +160,12 @@
             <button type="button" id="startButton">Start</button>
             <a href="profile.html"><i class="material-icons">person</i></a>
         </div>
+
+        <button id="stop">
+          <svg width="20" height="20">
+            <rect width="20" height="20" style="fill:rgb(100, 100, 100);" />
+          </svg>
+        </button>
 
     <script type="text/javascript" src="map.js?v=1.2"></script>
     <script async defer

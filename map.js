@@ -66,6 +66,8 @@ var preLoc = null;
 var curLoc = null;
 var sdis = 0;
 
+var totalPoint = 0;
+
 function followUser() {
   var options;
 
@@ -140,6 +142,9 @@ function followUser() {
       sdis = google.maps.geometry.spherical.computeDistanceBetween(curLoc, preLoc);
       sdis = sdis.toFixed(1);
       document.getElementById("speed").innerHTML=sdis +" m/s";
+
+      if (sdis >= 3.0 && sdis <=13)
+        totalPoint += Math.floor(sdis);
     }
 
     preLoc = curLoc;
@@ -188,6 +193,7 @@ function countDown() {
         co.style.display = "none";
         timer();
         followUser();
+        stopButton.style.display="block";
       }, 1000);
     } else {
       num--;
@@ -199,10 +205,19 @@ function countDown() {
 
 start.onclick = startPause;
 
+stopButton = document.getElementById("stop");
+stopButton.onclick = stop;
+
+
 var start = true;
 var running = false;
+var ifstop = false;
 function startPause() {
-  if (start===true && running ===false)
+  if(ifstop===true)
+  {
+    location.href = 'map.html';
+  }
+  else if (start===true && running ===false)
   {
     document.getElementById("count").innerHTML = num;
     countDown();
@@ -224,4 +239,17 @@ function startPause() {
     clearInterval(v);
     start = true;
   }
+}
+
+function stop(){
+  stopButton.style.display = "none";
+  document.getElementById("point").innerHTML=totalPoint;
+  document.getElementById("point-con").style.display="block";
+  clearTimeout(t);
+  navigator.geolocation.clearWatch(id);
+  document.getElementById("startButton").innerHTML="Start";
+  clearInterval(v);
+  start = false;
+  running = false;
+  ifstop = true;
 }
