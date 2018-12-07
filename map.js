@@ -177,13 +177,33 @@ function timer() {
   t = setInterval(add, 1000);
 }
 
+var c;
+var num = 3;
+var co = document.getElementById("count");
+function countDown() {
+  c = setTimeout(function(){
+    if (num==1){
+      co.innerHTML="Start";
+      setTimeout(function(){
+        co.style.display = "none";
+        timer();
+      }, 1000);
+    } else {
+      num--;
+      co.innerHTML=num;
+      countDown();
+    }
+  }, 1000);
+}
+
 start.onclick = startPause;
 
 var start = true;
 function startPause() {
   if (start===true)
   {
-    timer();
+    document.getElementById("count").innerHTML = num;
+    countDown();
     followUser();
     document.getElementById("startButton").innerHTML="Pause";
     start = false;
