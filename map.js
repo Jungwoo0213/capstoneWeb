@@ -183,7 +183,7 @@ var co = document.getElementById("count");
 function countDown() {
   c = setTimeout(function(){
     if (num==1){
-      co.innerHTML="Start";
+      co.innerHTML="START";
       setTimeout(function(){
         co.style.display = "none";
         timer();
