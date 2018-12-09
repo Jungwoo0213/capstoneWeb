@@ -91,6 +91,19 @@
 .container p{
 }
 
+#claim {
+    background: #ff8f00;
+    position: relative;
+    display:inline-block;
+    z-index: -1;
+    color:white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+    right:10px;
+    top:20px;
+}
+
 </style>
 <script>
     // When the user scrolls down 50px from the top of the document, resize the header's font size
@@ -126,12 +139,21 @@ function scrollFunction() {
                     <h2>Backen Backery</h2>
                     <h3>10% coupon up to 500 Won!</h3>
             </div>
+            <p id="claim">Claim</p>
         </div>
         <div class="items">
-            <h2>10% coupon</h2>
+            <img src="images/ink.png" class="store">
+            <div class="container">
+                    <h2>신전떡볶이</h2>
+                    <h3>10% coupon up to 1000 Won!</h3>
+            </div>
         </div>
         <div class="items">
-            <h2>10% coupon</h2>
+            <img src="images/starbucks-equal-pay.jpg" class="store">
+            <div class="container">
+                    <h2>Starbucks</h2>
+                    <h3>500 Won coupon for Americano.</h3>
+            </div>
         </div>
         <div class="items">
             <h2>10% coupon</h2>
