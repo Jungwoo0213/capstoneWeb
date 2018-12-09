@@ -44,19 +44,6 @@
     margin: 0px;
     color:#0e3113;
 }
-.items{
-    border:0px solid #c0b3c2;
-    background-color: #f5f7f5;
-    margin-top: 0px;
-    border-radius: 5px;
-    text-align: center;
-    height: 100px;
-
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    display: grid;
-    align-content:center;
-    margin-top: 10px;
-}
 .content{
     margin:30px 8px 60px 8px;
 }
@@ -67,6 +54,33 @@
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
+}
+.items{
+    border:0px solid #c0b3c2;
+    background-color: #f5f7f5;
+    border-radius: 5px;
+    height: 200px;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    
+    margin-top: 10px;
+    overflow: hidden;
+}
+.store{
+    display: inline-block;
+    height: 100%;
+    width: auto;
+    border-radius: 5px 0 0 5px;
+    max-width: 40%;
+}
+.container {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    overflow: visible;
+}
+.container h2{
+    margin: 0;
 }
 
 </style>
@@ -99,7 +113,12 @@ function scrollFunction() {
             <p> points</p>
         </div>
         <div class="items">
-            <h2>10% coupon</h2>
+            <img src="images/20181119_182920.jpg" class="store">
+            <div class="container">
+                    <h2>Backen backery</h2>
+                    <h3>10% coupon up to 500 Won!</h3>
+                    <p>They serve freshly baked bread everyday.</p>
+            </div>
         </div>
         <div class="items">
             <h2>10% coupon</h2>
