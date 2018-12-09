@@ -3,7 +3,7 @@
   "name": "RunnyMoney",
   "icons": [
     {
-      "src": "icons-512.png",
+      "src": "runny_icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
