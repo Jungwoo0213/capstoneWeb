@@ -91,17 +91,16 @@
 .container p{
 }
 
-#claim {
+.claim {
     background: #ff8f00;
-    position: relative;
-    display:inline-block;
-    z-index: -1;
+    position: absolute;
+    display:none;
     color:white;
     border-radius: 5px;
     padding: 5px;
     margin: 0;
-    right:10px;
-    top:20px;
+    right:20px;
+    bottom:240px;
 }
 
 </style>
@@ -139,7 +138,7 @@ function scrollFunction() {
                     <h2>Backen Backery</h2>
                     <h3>10% coupon up to 500 Won!</h3>
             </div>
-            <p id="claim">Claim</p>
+            <p class="claim">Claim</p>
         </div>
         <div class="items">
             <img src="images/ink.png" class="store">
@@ -147,6 +146,7 @@ function scrollFunction() {
                     <h2>신전떡볶이</h2>
                     <h3>10% coupon up to 1000 Won!</h3>
             </div>
+            <p class="claim">Claim</p>
         </div>
         <div class="items">
             <img src="images/starbucks-equal-pay.jpg" class="store">
